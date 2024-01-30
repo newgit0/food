@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topnav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: auto;
+  background: rgb(147, 140, 149);
+  white-space: nowrap;
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topnav a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.topnav a:hover {
+  background-color: #87c245;
+  color: white;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  border-radius: 5px;
+
+}
+.topnav a:not(:first-child) {
+  margin-right: 10px;
+}
+
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 5px;
+  margin: 0 10px 10px 4px; /* Adjust margin for spacing between buttons */
+  background-color: #cfd9dc;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  
+  border-radius: 5px;
+  min-width: 90px;
+}
+
+
+.button img {
+  padding-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.button:hover {
+  background-color: #04AA6D;
+}
+
+.name1 {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.buttonbox{
+    overflow: auto;
+}
+.buttonbox1{
+  overflow: auto;}
+
+  .buttonbox2{
+    overflow: auto;
+}
+.buttonbox3{
+  overflow: auto;}
+
+  .category-buttons-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    background: #ffffff;
+  }
+
+  .category-buttons-container button {
+    padding: 10px 20px;
+    margin-right: 10px; /* Add some space between buttons */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    white-space: nowrap; /* Prevent line breaks */
+  }
+  .category-buttons-container button:hover {
+  background-color: #f0f0f0;
+}
+  .category-buttons-container button.active {
+    background-color: #b94ece;
+    color: #ffffff;
+    border: 2px solid #5b2ac5;
+    /* transition: border 0.1s ease-in-out; */
+
+
+  }
+
+  .category-buttons-container button {
+  margin-right: 15px;
+  /* transition: background-color 0.9s ease-in-out, color 0.9s ease-in-out; */
+
+}
+.container {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#no-results-message {
+  text-align: center;
+  font-size: 18px;
+}
+#offline-message {
+      display: none;
+      text-align: center;
+      font-size: 20px;
+      padding: 20px;
+      background-color: #ff5555;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      transition: background-color 0.5s ease-in-out;
+    }
+     /* Add a green background when online */
+     #offline-message.online {
+      background-color: #04AA6D;
+    }
+
+    .shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(500%);
+  }
+}
+  
+</style>
+</head>
+
+<!-- 
+<div class="topnav" id="myTopnav">
+  <a href="#" onclick="showAll()">Show All</a>
+
+    <a href="#" onclick="showContainer('container')">Search Engines</a>
+  <a href="#" onclick="showContainer('container1')">Reels</a>
+  <a href="#" onclick="showContainer('container3')">About</a> 
+  <a href="#class1">search engine</a>
+  <a href="#contact">Reels</a>
+  <a href="#about">About</a>
+  <a href="#text1">Text 1</a>
+  <a href="#text2">Text 2</a>
+  <a href="#text3">Text 3</a>
+  <a href="#text4">Text 4</a>
+  <a href="#text5">Text 5</a>
+  <a href="https://www.google.com">Google</a>
+  <a href="https://www.facebook.com">Facebook</a>
+  <a href="https://www.instagram.com">Instagram</a>
+</div> -->
+
+
+<div class="category-buttons-container">
+  <button class="filter-button active" onclick="filterVideos('all')" data-category="all">Food WebSites</button>
+ 
+
+
+</div> 
+
+
+<div class="container" data-category="Allinone">
+
+  <div class="name1">
+<p>All Food Sites</p></div>
+<div class="buttonbox1">
+  
+  <div class="button-container">
+    <a href="https://www.zomato.com/">
+    <div class="button shimmer">
+      <img src="img/zomato.png" alt="Image 1" height="30" width="30"> Zomato
+    </div>
+  </a>
+  <a href="https://www.swiggy.com/">
+    <div class="button shimmer">
+      <img src="img/swiggy.png" alt="Image 1" height="30" width="30"> Swiggy
+    </div>
+  </a>
+  <a href="https://www.ubereats.com/in">
+    <div class="button shimmer">
+      <img src="img/ubereats.png" alt="Image 1" height="30" width="30"> Uber Eats
+    </div>
+  </a>
+  <a href="https://www.dominos.co.in/">
+    <div class="button shimmer">
+      <img src="img/dominos.png" alt="Image 1" height="30" width="30">
+      Dominos
+    </div>
+  </a>
+  <a href="https://www.mcdelivery.co.in/">
+    <div class="button shimmer">
+      <img src="img/mcdelivery.png" alt="Image 1" height="30" width="30">
+      McDonald's
+    </div>
+  </a>
+  <a href="https://www.pizzahut.co.in/">
+    <div class="button shimmer">
+      <img src="img/pizzahut.png" alt="Image 1" height="30" width="30">
+      Pizza Hut
+    </div>
+  </a>
+  <a href="https://www.kfc.co.in/">
+    <div class="button shimmer">
+      <img src="img/kfc.png" alt="Image 1" height="30" width="30">
+      KFC
+    </div>
+  </a>
+  <a href="https://www.dineout.co.in/">
+    <div class="button shimmer">
+      <img src="img/dineout.png" alt="Image 1" height="30" width="30">
+      Dineout
+    </div>
+  </a>
+  <a href="https://www.foodpanda.in/">
+    <div class="button shimmer">
+      <img src="img/foodpanda.png" alt="Image 1" height="30" width="30">
+      Foodpanda
+    </div>
+  </a>
+  <a href="https://www.bigbasket.com/">
+    <div class="button shimmer">
+      <img src="img/bigbasket.png" alt="Image 1" height="30" width="30">
+      Big Basket
+    </div>
+
+  </a>
+  <a href="https://www.grofers.com/">
+    <div class="button shimmer">
+      <img src="img/grofers.png" alt="Image 1" height="30" width="30">
+      Grofers
+    </div>
+  </a>
+  <a href="https://www.amazon.in/pantry-online-grocery-shopping-store/b?ie=UTF8&node=9574332031">
+    <div class="button shimmer">
+      <img src="img/amazon.png" alt="Image 1" height="30" width="30">
+      Amazon Pantry
+    </div>
+  </a>
+  <a href="https://www.flipkart.com/grocery-supermart-store?otracker=nmenu_Grocery%20Supermart">
+    <div class="button shimmer">
+      <img src="img/flipkart.png" alt="Image 1" height="30" width="30">
+      Flipkart Supermart
+    </div>
+  </a>
+  <a href="https://www.naturesbasket.co.in/Online-grocery-shopping/Natures-Basket/s/9">
+    <div class="button shimmer">
+      <img src="img/naturesbasket.png" alt="Image 1" height="30" width="30">
+      Nature's Basket
+    </div>
+  </a>
+  <a href="https://www.jiomart.com/">
+    <div class="button shimmer">
+      <img src="img/jiomart.png" alt="Image 1" height="30" width="30"> Jio Mart
+    </div>
+  </a>
+  <a href="https://www.dmart.in/">
+    <div class="button shimmer">
+      <img src="img/dmart.png" alt="Image 1" height="30" width="30"> Dmart
+    </div>
+  </a>
+  <a href="https://www.bigbazaar.com/">
+    <div class="button shimmer">
+      <img src="img/bigbazaar.png" alt="Image 1" height="30" width="30"> Big Bazaar
+    </div>
+  </a>
+  <a href="https://www.spencers.in/">
+    <div class="button shimmer">
+      <img src="img/spencers.png" alt="Image 1" height="30" width="30"> Spencers
+    </div>
+  </a>
+  <a href="https://www.groceryfactory.in/">
+    <div class="button shimmer">
+      <img src="img/groceryfactory.png" alt="Image 1" height="30" width="30"> Grocery Factory
+    </div>
+  </a>
+  
+  
+ 
+ 
+ 
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      function handleButtonClick(button) {
+    document.querySelectorAll('.filter-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    const category = button.getAttribute('data-category');
+    filterVideos(category);
+  }
+
+  document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', () => {
+      handleButtonClick(button);
+    });
+  });
+
+  function filterVideos(category) {
+    const videoItems = document.querySelectorAll('.container');
+    let noResultsMessage = document.getElementById('no-results-message');
+    let hasResults = false;
+
+    videoItems.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+
+      if (category === 'all' || itemCategory === category) {
+        item.style.display = 'block';
+        hasResults = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResultsMessage.style.display = hasResults ? 'none' : 'block';
+  }
+
+  function showContainer(containerId, category) {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      container.style.display = 'none';
+    });
+
+    const container = document.querySelector(`.${containerId}`);
+    if (category) {
+      filterVideos(category);
+    } else {
+      container.style.display = 'block';
+    }
+  }
+
+  function showAll() {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      container.style.display = 'block';
+    });
+
+    filterVideos('all');
+  }
+     
+     
+     
+     
+     
+     </script> 
+    
+</body>
+</html>
